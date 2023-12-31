@@ -1,4 +1,4 @@
-import Navbar from '@/scenes/Navbar'
+import Navbar from '@/scenes/navbar'
 
 function App() {
 
