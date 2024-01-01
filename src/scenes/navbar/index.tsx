@@ -14,7 +14,7 @@ type Props = {
 const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
   const flexBetween = "flex items-center justify-between";
   const isLargeScreen = useMediaQuery("(min-width: 1060px)")
-  const [isSetSideMenuActive, setIsSideMenuActive] = useState(false)
+  const [isSideMenuActive, setIsSideMenuActive] = useState(false)
 
   return (
     <nav>
@@ -53,7 +53,7 @@ const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
             </div> 
             ) : (
               <button className="rounded-full bg-secondary-500 p-2"
-              onClick={() => setIsSideMenuActive(!isSetSideMenuActive)}
+              onClick={() => setIsSideMenuActive(!isSideMenuActive)}
               >
                 <Bars3Icon className="h-6 w-6 text-white" />
               </button>
@@ -61,6 +61,16 @@ const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
           </div>
         </div>
       </div>
+
+      {!isLargeScreen && isSideMenuActive && (
+        <div className="fixed right-0 bottom-0 z-40 h-full w-[300px] bg-primary-100 drop-shadow-xl">
+          <div className="flex justify-end p-12">
+            <button  onClick={() => setIsSideMenuActive(!isSideMenuActive)}>
+              <XMarkIcon className="h-5 w-6 text-gray-400" />
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
