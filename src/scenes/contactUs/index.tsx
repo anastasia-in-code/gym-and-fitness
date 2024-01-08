@@ -27,7 +27,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
   };
 
   return (
-    <section id="contactus" className="w-5/6 mx-auto pb-32 pt-24">
+    <section id="contactus" className="mx-auto w-5/6 pb-32 pt-24">
       <motion.div
         onViewportEnter={() => setSelectedPage(SelectedPage.ContactUs)}
       >
@@ -82,38 +82,44 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               method="POST"
               action="https://formsubmit.co/anastasiia.perih@gmail.com"
             >
-              <input
-                className={inputStyle}
-                type="text"
-                placeholder="NAME"
-                {...register("name", {
-                  required: true,
-                  maxLength: 100,
-                })}
-              />
-              {errors.name && (
-                <p className="mt-1 mb-5 text-primary-500 ">
-                  {errors.name.type === "required" && "This field is required"}
-                  {errors.name.type === "maxLength" &&
-                    "This field is max 100 characters"}
-                </p>
-              )}
+              <div className="mb-5">
+                <input
+                  className={inputStyle}
+                  type="text"
+                  placeholder="NAME"
+                  {...register("name", {
+                    required: true,
+                    maxLength: 100,
+                  })}
+                />
+                {errors.name && (
+                  <p className="mb-5 mt-1 text-primary-500 ">
+                    {errors.name.type === "required" &&
+                      "This field is required"}
+                    {errors.name.type === "maxLength" &&
+                      "This field is max 100 characters"}
+                  </p>
+                )}
+              </div>
 
-              <input
-                className={inputStyle}
-                type="text"
-                placeholder="EMAIL"
-                {...register("email", {
-                  required: true,
-                  pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                })}
-              />
-              {errors.email && (
-                <p className="mt-1 text-primary-500 ">
-                  {errors.email.type === "required" && "This field is required"}
-                  {errors.email.type === "pattern" && "Invalid email adress"}
-                </p>
-              )}
+              <div className="mb-5">
+                <input
+                  className={inputStyle}
+                  type="text"
+                  placeholder="EMAIL"
+                  {...register("email", {
+                    required: true,
+                    pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  })}
+                />
+                {errors.email && (
+                  <p className="mt-1 text-primary-500 ">
+                    {errors.email.type === "required" &&
+                      "This field is required"}
+                    {errors.email.type === "pattern" && "Invalid email adress"}
+                  </p>
+                )}
+              </div>
 
               <textarea
                 className={inputStyle}
@@ -127,39 +133,44 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               />
               {errors.message && (
                 <p className="mt-1 text-primary-500 ">
-                  {errors.message.type === "required" && "This field is required"}
+                  {errors.message.type === "required" &&
+                    "This field is required"}
                   {errors.message.type === "pattern" && "Invalid email adress"}
                 </p>
               )}
 
-              <button type='submit' className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white">
+              <button
+                type="submit"
+                className="mt-5 rounded-lg bg-secondary-500 px-20 py-3 transition duration-500 hover:text-white"
+              >
                 Submit
               </button>
             </form>
           </motion.div>
-          <motion.div 
-          className="relative mt-16 basis-2/5 md:mt-0"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{
-            once: true,
-            amount: 0.5,
-          }}
-          transition={{
-            delay: 0.2,
-            duration: 1,
-          }}
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: { opacity: 1, y: 0 },
-          }}>
-            <div className="md:before:content-evolvetext w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-1]">
-              <img 
-              className="w-full" 
-              alt='contact us page graphic'
-              src={ContactUsPageGraphic}/>
+          <motion.div
+            className="relative mt-16 basis-2/5 md:mt-0"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+              once: true,
+              amount: 0.5,
+            }}
+            transition={{
+              delay: 0.2,
+              duration: 1,
+            }}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <div className="w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-1] md:before:content-evolvetext">
+              <img
+                className="w-full"
+                alt="contact us page graphic"
+                src={ContactUsPageGraphic}
+              />
             </div>
-
           </motion.div>
         </div>
       </motion.div>

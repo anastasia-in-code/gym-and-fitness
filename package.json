@@ -1,17 +1,21 @@
 {
   "name": "gym-fitness",
+  "homepage": "https://anastasia-in-code.github.io/gym-and-fitness/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
     "framer-motion": "^10.16.16",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^18.2.0",
